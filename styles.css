@@ -1,8 +1,9 @@
 :root {
-  --vol-orange: #FF8200; /* Tennessee Orange */
-  --vol-black: #0A0A0A;  /* Brand Black */
-  --vol-white: #FFFFFF;  /* Pure White */
-  --vol-gray: #4B4B4B;   /* Smokey Gray */
+  --vol-orange: #FF8200;
+  --vol-black: #0A0A0A;
+  --vol-white: #FFFFFF;
+  --vol-gray: #4B4B4B;
+  --glass-bg: rgba(255, 255, 255, 0.03);
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -15,77 +16,92 @@ body {
   min-height: 100vh;
 }
 
-/* 4:5 Portrait Ratio */
-.canvas-1080x1350 {
-  width: 1080px;
-  height: 1350px;
-  background: var(--vol-black);
+/* Updated Canvas with Glow + Depth */
+.canvas-1080x1350, .canvas-1080x1080 {
+  background: radial-gradient(circle at top left, #1a1a1a 0%, #0a0a0a 100%);
   color: var(--vol-white);
   font-family: var(--font-main);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 80px;
+  padding: 90px;
   box-sizing: border-box;
-  border-left: 20px solid var(--vol-orange); /* Side Rail */
-  border-top: 2px solid var(--vol-gray);
-  border-right: 2px solid var(--vol-gray);
-  border-bottom: 2px solid var(--vol-gray);
+  border-left: 18px solid var(--vol-orange);
+  /* This creates the Neon Edge effect */
+  box-shadow: inset 10px 0 30px -10px rgba(255, 130, 0, 0.2); 
   position: relative;
 }
 
+/* Professional Typography */
 .canvas-header {
-  font-size: 72px;
+  font-size: 82px;
   font-weight: 900;
   text-transform: uppercase;
   color: var(--vol-orange);
-  line-height: 1;
-  letter-spacing: -2px;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  text-shadow: 0 0 20px rgba(255, 130, 0, 0.3);
 }
 
 .canvas-subheader {
-  font-size: 24px;
-  margin-top: 15px;
-  color: var(--vol-gray); /* Secondary Label */
+  font-size: 22px;
+  margin-top: 20px;
+  color: var(--vol-gray);
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 600;
+  letter-spacing: 6px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--vol-gray);
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-.canvas-content {
-  flex: 1;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
+/* Glassmorphism Info Blocks */
 .info-block {
-  border-bottom: 1px solid var(--vol-gray); /* Section Rule */
-  padding-bottom: 20px;
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 35px;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  transition: 0.3s;
 }
 
 .info-block strong {
-  color: var(--vol-white);
-  font-size: 36px;
+  color: var(--vol-orange);
+  font-size: 32px;
   text-transform: uppercase;
+  letter-spacing: 1px;
   display: block;
+  margin-bottom: 12px;
 }
 
 .info-block p {
-  margin: 10px 0 0;
+  margin: 0;
   font-size: 24px;
+  line-height: 1.5;
   color: var(--vol-white);
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+/* Small Tag for Categories */
+.tag {
+  font-size: 14px;
+  color: var(--vol-orange);
+  border: 1px solid var(--vol-orange);
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .watermark {
   position: absolute;
   bottom: 40px;
   right: 50px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 5px;
-  color: var(--vol-gray); /* Footnote style */
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.2);
   text-transform: uppercase;
 }
